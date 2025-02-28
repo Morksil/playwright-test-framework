@@ -31,5 +31,7 @@ public class HandlingAlerts {
 
         page.close();
         playwright.close();
+
+        // TO jest zmiana w kodzie, ktore chce zaobserwowac na githubie
     }
 }
