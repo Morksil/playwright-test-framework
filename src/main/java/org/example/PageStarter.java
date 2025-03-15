@@ -18,6 +18,17 @@ public class PageStarter {
                         .setViewportSize(1920, 1080));
         this.page = browserContext.newPage();
     }
+    public PageStarter(String login, String password) {
+        this.playwright = Playwright.create();
+        this.browser = playwright.chromium().launch(
+                new BrowserType.LaunchOptions()
+                        .setHeadless(false));
+        this.browserContext = browser.newContext(
+                new Browser.NewContextOptions()
+                        .setViewportSize(1920, 1080)
+                        .setHttpCredentials(login, password));
+        this.page = browserContext.newPage();
+    }
 
     public void teardown(){
         this.page.close();
